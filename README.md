@@ -1,2 +1,2 @@
-# ose-rest-products
-Simple REST service for testing
+# openshift-restservice
+Simple REST service for s2i testing
