@@ -1,7 +1,9 @@
 package com.tahonen.ostesting.productservice;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -20,6 +22,20 @@ public class ProductService {
 	public Response list() {
 		try {
 			return Response.status(Response.Status.OK).entity(this.createCustomers()).build();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+		}
+
+	}
+	@GET
+	@Path("/version")
+	@Produces("application/json;charset=UTF-8")
+	public Response version() {
+		try {
+			Map<String,Object> data = new HashMap<String,Object>();
+			data.put("version", System.getProperty("version"));
+			return Response.status(Response.Status.OK).entity(data).build();
 		} catch (Exception e) {
 			e.printStackTrace();
 			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
