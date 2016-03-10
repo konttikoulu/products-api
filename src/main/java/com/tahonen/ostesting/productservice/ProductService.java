@@ -21,7 +21,7 @@ public class ProductService {
 	@Produces("application/json;charset=UTF-8")
 	public Response list() {
 		try {
-			return Response.status(Response.Status.OK).entity(this.createCustomers()).build();
+			return Response.status(Response.Status.OK).entity(this.createProducts()).build();
 		} catch (Exception e) {
 			e.printStackTrace();
 			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
@@ -61,7 +61,7 @@ public class ProductService {
 
 	}
 
-	private List<Product> createCustomers() {
+	private List<Product> createProducts() {
 		List<Product> products = new ArrayList<Product>();
 		for (int j = 0; j < 10; j++) {
 			Product p = new Product(j + 1, "Product " + (j + 1), "Description " + (j + 1));
@@ -69,6 +69,7 @@ public class ProductService {
 				p.addItem(new ProductItem("Item " + i + " for " + (j + 1), "Description " + i + " for item " + (j + 1),
 						j * i, "Type " + i));
 			}
+			products.add(p);
 		}
 
 		return products;
