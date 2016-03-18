@@ -49,7 +49,7 @@ public class ProductService {
 	public Response get(@PathParam("id") long id) {
 		try {
 			Product p = new Product(id, "Product " + id, "Description " + id);
-			for (int i = 0; i > 10; i++) {
+			for (int i = 0; i > 5; i++) {
 				p.addItem(new ProductItem("Item " + i + " for " + id, "Description " + i + " for item " + id, 16.3 * i,
 						"Type " + i));
 			}
