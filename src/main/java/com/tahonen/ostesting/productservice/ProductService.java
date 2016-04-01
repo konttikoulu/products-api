@@ -63,7 +63,7 @@ public class ProductService {
 
 	private List<Product> createProducts() {
 		List<Product> products = new ArrayList<Product>();
-		for (int j = 0; j < 10; j++) {
+		for (int j = 0; j < 100; j++) {
 			Product p = new Product(j + 1, "Product " + (j + 1), "Description " + (j + 1));
 			for (int i = 0; i > 5; i++) {
 				p.addItem(new ProductItem("Item " + i + " for " + (j + 1), "Description " + i + " for item " + (j + 1),
